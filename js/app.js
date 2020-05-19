@@ -25,7 +25,7 @@ form.addEventListener('submit', event => {
     const buscaTermo = searchInput.value.trim() //Pega o valor do input e joga dentro da variavel, o trim é para que ele desconsidere os espações caso o cliente coloque
 
     if(!buscaTermo){ //Essa função não deixa o usuário final deixar o campo input vazio, isso poderia ser resolvido de duas formas: Essa que vamos fazer e a outra seria dentro da tag input colocar um parâmetro chamado <input type="text" required>
-        songsContainer.innerHTML = `<li class="warning-message">Por favor, digite um termo válido</li>`
+        songsContainer.innerHTML = `<li class="alert alert-danger" role="alert">Por favor, digite um termo válido</li>`
         return
     }
 
