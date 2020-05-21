@@ -8,7 +8,12 @@ const apiURL = `https://api.lyrics.ovh`
 
 const insertSongsIntoPage = songsInfo => { //Vai jogar o template na tela
     console.log(songsInfo)
-    songsContainer.innerHTML = songsInfo.data.map() //Ele vai pegar o array de objetos de songsInfo
+    songsContainer.innerHTML = songsInfo.data.map(song => `
+    <li class="song">
+        <span class="text-muted"><strong>${song.artist.name}</strong> - ${song.title}</span>
+        <button class="btn btn-primary btn-sm rounded-pill" data-artist="${song.artist.name}" data-song-title="${song.title}">Ver letra</button>
+    </li>
+    `).join('') //Ele vai pegar o array de objetos de songsInfo e com o map ele vai criar um novo array com os mesmos elementos do original e percorrer por todos os elementos do array e fazer alguma modificação; Como o map vai gerar um array e não teria como colocar um array no index, vou usar o metodo Join que vai retornar uma nova string com todos os elementos do array separados por virgulas.
 }
 
 const fetchSongs = async term => {
