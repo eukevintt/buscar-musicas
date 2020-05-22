@@ -25,10 +25,10 @@ const colocarSonsNaPagina = songsInfo => { //Vai jogar o template na tela
         <button class="btn btn-primary btn-sm rounded-pill" data-artist="${song.artist.name}" data-song-title="${song.title}">Ver letra</button>
     </li>
     `).join('') //Ele vai pegar o array de objetos de songsInfo e com o map ele vai criar um novo array com os mesmos elementos do original e percorrer por todos os elementos do array e fazer alguma modificação; Como o map vai gerar um array e não teria como colocar um array no index, vou usar o metodo Join que vai retornar uma nova string com todos os elementos do array separados por virgulas.
-    if(songsInfo.prev || songsInfo.next){ //Adiciona os botões de anterior ou próximo caso o limite de musicas ultrapasse na pagina inicial
+    if(songsInfo.prev || songsInfo.next){ //Adiciona os botões de anterior ou próximo caso o limite de musicas ultrapasse na pagina inicial e caso os songsinfo.prev e next sejam trues
         antesProximoContainer.innerHTML = `
-            ${songsInfo.prev ? `<button class="btn btn-secondary" onClick="pegarMaisSons()'${songsInfo.prev}')"><= Anteriores</button>`: ''}
-            ${songsInfo.next ? `<button class="btn btn-secondary" onClick="pegarMaisSons()'${songsInfo.next}')">Próximas =></button>`: ''}
+            ${songsInfo.prev ? `<button class="btn btn-secondary" onclick="pegarMaisSons('${songsInfo.prev}')"><= Anteriores</button>`: ''}
+            ${songsInfo.next ? `<button class="btn btn-secondary" onclick="pegarMaisSons('${songsInfo.next}')">Próximas =></button>`: ''}
          `
         return
     }
