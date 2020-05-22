@@ -7,7 +7,7 @@ const antesProximoContainer = document.querySelector('#antes-proximo-container')
 const apiURL = `https://api.lyrics.ovh`
 
 const pegarMaisSons = async url => {
-    const response = await fetch(`${apiURL}/suggest/${term}`)
+    const response = await fetch(`https://cors-anywhere.herokuapp.com/${url}`) //se não colocar essa linha ele pode dar um problema de cors, que basicamente o navegador trava qualquer tipo de requisição de outro site... com essa solução que a empresa heroku fez é possivel ter as requisições
     const data = await response.json()
 
     colocarSonsNaPagina(data)
@@ -23,8 +23,8 @@ const colocarSonsNaPagina = songsInfo => { //Vai jogar o template na tela
 
     if(songsInfo.prev || songsInfo.next){ //Adiciona os botões de anterior ou próximo caso o limite de musicas ultrapasse na pagina inicial
         antesProximoContainer.innerHTML = `
-            ${songsInfo.prev ? `<button onClick="pegarMaisSons('${songsInfo.prev}')">Anteriores</button>`: ''}
-            ${songsInfo.next ? `<button onClick="pegarMaisSons('${songsInfo.next}')">Próximas</button>`: ''}
+            ${songsInfo.prev ? `<button class="btn btn-secondary" onClick="pegarMaisSons()'${songsInfo.prev}')"><= Anteriores</button>`: ''}
+            ${songsInfo.next ? `<button class="btn btn-secondary" onClick="pegarMaisSons()'${songsInfo.next}')">Próximas =></button>`: ''}
          `
         return
     }
