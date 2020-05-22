@@ -93,7 +93,7 @@ form button {
   margin: 30px auto;
   max-width: 100%;
   width: 500px;
-  background-color: #10161B;
+
 }
 
 .musicas {
@@ -103,7 +103,7 @@ form button {
   margin: 10px 0;
 }
 
-.antes-proximo-container {
+.centro {
   display: flex;
   justify-content: center;
 }
@@ -113,4 +113,12 @@ form button {
   align-items: flex-start;
   justify-content: space-between;
   margin: 10px 0;
+}
+
+#central{
+  /* padding-top: 0.5px; */
+  background-color: white;
+  width: 650px;
+  margin: auto;
+  border-radius: 10px;
 }
