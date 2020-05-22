@@ -3,3 +3,4 @@ Uma aplicação web em JS, que quando você buscar uma letra/nome/cantor de uma 
 
 ## Quer dar uma olhada de como o projeto funciona na prática?
 https://invo36.github.io/buscar-musicas/ <br /> <br />
+Ainda falta mexer um pouco na responsividade, mas por enquanto o projeto é basicamente esse.
