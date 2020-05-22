@@ -65,3 +65,39 @@ form.addEventListener('submit', event => {
 
     fetchSongs(buscaTermo)
 })
+
+const letras = async(artista, tituloMusi) => { 
+
+    const response = await fetch(`${apiURL}/v1/${artista}/${tituloMusi}`)
+    const data = await response.json()
+    document.getElementById('titulo').innerHTML = `${tituloMusi} - ${artista}`
+
+    if(data.lyrics === undefined){ //se a letra da musica for indefinida quer dizer que a letra da musica que o usuario apertou não tenha no banco de dados da api
+        document.getElementById('letras-lista').innerHTML = `
+        <li>
+        <p class='text-muted'>A letra infelizmente não está disponivel para essa música</p>
+        </li>
+    `
+    }else{
+        const letras = data.lyrics.replace(/(\r\n|\r|\n)/g , '<br>')//essa parte aqui do replace eu vi um tutorial em que explicava como tratar strings, a letra ela vem toda bagunçada, então eu só adaptei para as letras das músicas
+        document.getElementById('letras-lista').innerHTML = `
+        <li> 
+            
+            <p class='text-muted'>${letras}</p>
+        </li>
+    `
+    }
+
+    $('#letras').modal('show') //abre o modal
+}
+
+containerMusicas.addEventListener('click', event => {
+    const elementoCliclado = event.target
+
+    if(elementoCliclado.tagName === 'BUTTON'){ //caso o elemento clicado for um botão ele vai executar
+        const artista = elementoCliclado.getAttribute('data-artist')
+        const tituloMusi = elementoCliclado.getAttribute('data-song-title')
+
+        letras(artista, tituloMusi)
+    }
+})
