@@ -86,3 +86,31 @@ form button {
   font-size: 16px;
   padding: 13px 30px;
 }
+
+.container-musicas {
+  list-style-type: none;
+  padding: 0;
+  margin: 30px auto;
+  max-width: 100%;
+  width: 500px;
+  background-color: #10161B;
+}
+
+.musicas {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.antes-proximo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.musica {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 10px 0;
+}
